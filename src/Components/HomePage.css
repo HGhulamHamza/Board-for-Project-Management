@@ -1,0 +1,103 @@
+.homepage-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    width: 98vw; /* Ensure the container takes the full width of the viewport */
+    overflow-x: hidden
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.signup-btn {
+    background-color: #FF5A5F;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    position: relative;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.hero-text {
+    max-width: 40%; /* Reduced to give more space to the image */
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+    padding: 15px 30px;
+    margin-right: 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.about-btn {
+    background-color: #FF5A5F;
+}
+
+.how-btn {
+    background-color: #333;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1; /* Ensure the image takes up the remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%; /* Further increase the image width */
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.pink-background {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 60%;
+    height: 80%;
+    background-color: #FF5A5F;
+    z-index: 1;
+    border-radius: 50% 50% 0 0; /* Create a U-shape effect */
+    transform: translateX(30%); /* Adjust to wrap around the image */
+}
