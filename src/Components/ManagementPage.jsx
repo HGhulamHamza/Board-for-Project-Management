@@ -4,9 +4,10 @@ import { auth, db } from '../firebaseConfig.js';
 import './ManagementPage.css';
 import { collection, addDoc, updateDoc, doc, deleteDoc, onSnapshot, query, orderBy } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
+
 import editIcon from '../assets/edit.png'; // Path to the edit icon
 import deleteIcon from '../assets/del.png'; // Path to the delete icon
+import moveIcon from '../assets/move.png';
 
 const ManagementPage = () => {
   const [tasks, setTasks] = useState({
@@ -166,16 +167,46 @@ const ManagementPage = () => {
     setEditTaskId(task.id);
   };
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((error) => {
-        console.error('Sign Out Error:', error.message);
-      });
+  const handleMoveTask = (task) => {
+    const newStatus = prompt("Enter new status (todo, inProgress, completed):");
+  
+    if (["todo", "inProgress", "completed"].includes(newStatus)) {
+      moveTask(task, newStatus);
+    } else {
+      alert("Invalid status. Please enter 'todo', 'inProgress', or 'completed'.");
+    }
   };
-
+  
+  const moveTask = async (task, newStatus) => {
+    const taskDoc = doc(db, "tasks", task.id);
+    const updatedTask = {
+      ...task,
+      status: newStatus,
+      history: [
+        ...task.history,
+        {
+          action: `Moved to ${newStatus}`,
+          date: new Date().toISOString(),
+        },
+      ],
+    };
+  
+    try {
+      await updateDoc(taskDoc, updatedTask);
+      setTasks((prevTasks) => {
+        const updatedTasks = { ...prevTasks };
+        Object.keys(updatedTasks).forEach((section) => {
+          updatedTasks[section] = updatedTasks[section].filter(t => t.id !== task.id);
+        });
+        updatedTasks[newStatus].push(updatedTask);
+        return updatedTasks;
+      });
+    } catch (error) {
+      console.error('Error moving task:', error);
+    }
+  };
+  
+  
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -218,6 +249,12 @@ const ManagementPage = () => {
                                   alt="Delete"
                                   className="action-icon"
                                   onClick={() => deleteTask(task.id)}
+                                />
+                                <img
+                                  src={moveIcon}
+                                  alt="Move"
+                                  className="action-icon"
+                                  onClick={() => handleMoveTask(task)}
                                 />
                               </div>
                             </div>
@@ -299,10 +336,30 @@ const ManagementPage = () => {
                 Cancel
               </button>
             </form>
+            <div className="task-actions">
+  <img
+    src={editIcon}
+    alt="Edit"
+    className="action-icon"
+    onClick={() => handleEditTask(task)}
+  />
+  <img
+    src={deleteIcon}
+    alt="Delete"
+    className="action-icon"
+    onClick={() => deleteTask(task.id)}
+  />
+  <img
+    src={moveIcon}
+    alt="Move"
+    className="action-icon"
+    onClick={() => handleMoveTask(task)}
+  />
+</div>
           </div>
         </div>
+        
       )}
-      
     </>
   );
 };
