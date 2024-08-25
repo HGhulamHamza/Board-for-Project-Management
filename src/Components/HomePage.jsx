@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Import useState
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
-import './Homepage.css';
+import './HomePage.css';
 import Hero from '../assets/home.jpeg';
 // Import videoFile if needed
 // import videoFile from '../assets/HowItWorks.mp4';
