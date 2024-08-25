@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig'; // Adjust the path as necessary
 import './SignIn.css'; // Import the CSS file
+import ImageSign from '../assets/project-management.jpeg';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const SignIn = () => {
           Sign in to manage your tasks, projects, and track your progress of your work.
         </p>
         <img 
-          src="src/assets/project-management.jpeg" 
+          src={ImageSign} 
           alt="Logo" 
           className="sideImage" 
         />

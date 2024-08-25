@@ -1,10 +1,12 @@
+/* Base Styles */
 .container {
     display: flex;
     height: 100vh; /* Adjusted height to fit the view */
     background-color: #f9f9f9;
     padding: 2rem;
-    max-width: 1200px; /* Constraining the container width */
+    max-width: 1500px; /* Constraining the container width */
     margin: 0 auto; /* Centering the container */
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .textSection {
@@ -31,7 +33,9 @@
 
 .sideImage {
     margin-top: 2rem; /* Add some space between the text and image */
-    max-width: 100%; /* Ensures the image doesn't overflow */
+    max-width: 90%; /* Ensures the image doesn't overflow */
+    height: 100px;
+    margin-bottom: 45px;
     height: auto;
     border-radius: 10px; /* Optional: Adds a slight border radius to the image */
 }
@@ -104,4 +108,75 @@
 .errorMessage {
     color: #ff5a5f;
     text-align: center;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections vertically */
+        height: auto; /* Allow container height to adjust based on content */
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .textSection {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .sideImage {
+        margin-top: 1rem;
+        width: 100%; /* Ensure the image fits the container width */
+    }
+
+    .formSection {
+        padding: 1rem;
+        max-width: 100%; /* Ensure form section fits within viewport */
+        margin: 0 auto;
+    }
+
+    .formHeading {
+        font-size: 1.5rem;
+    }
+
+    .toggleButtons {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .toggleButton {
+        width: 100%; /* Ensure buttons take full width */
+    }
+
+    .inputField, .submitButton {
+        width: 100%; /* Ensure form elements fit within viewport */
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .formHeading {
+        font-size: 1.2rem;
+    }
+
+    .inputField, .submitButton {
+        padding: 0.4rem;
+    }
+
+    .toggleButton {
+        padding: 0.4rem;
+    }
 }

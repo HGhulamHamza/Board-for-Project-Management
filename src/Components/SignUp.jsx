@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './SignUp.css'; // Import the CSS file
 import { auth } from '../firebaseConfig';
+import ImageSign from '../assets/project-management.jpeg'
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const SignUp = () => {
           Sign up to get started with our Project Management Service. Manage your team, track progress, and achieve your goals all in one place.
         </p>
         <img 
-          src="src/assets/project-management.jpeg" 
+          src={ImageSign}
           alt="Project Management" 
           className="sideImage" 
         />

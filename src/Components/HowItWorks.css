@@ -1,0 +1,56 @@
+/* src/pages/HowItWorks.css */
+.how-it-works-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.how-it-works-header {
+    margin-bottom: 20px;
+}
+.how-it-works-header h1{
+    font-size: 40px;
+    color:#FF5A5F;
+} 
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .how-it-works-container {
+        margin-top: 260px;
+        padding: 10px;
+    }
+
+    .how-it-works-header h1 {
+        font-size: 32px;
+    }
+
+    .video-container {
+        margin-top: 20px;
+        flex-direction: column; /* Stack the video below the text */
+    }
+
+    video {
+        max-width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-it-works-header h1 {
+        font-size: 28px;
+    }
+
+    .how-it-works-container {
+        padding: 10px;
+    }
+}

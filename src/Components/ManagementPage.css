@@ -1,162 +1,172 @@
-/* Existing styles */
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
 
 .board-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .board-container {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .section {
-    background-color: #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    width: 32%; /* Increased width of each section */
-    border-radius: 20px;
-  }
-  
-  .section-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .task-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .add-task-button {
-    display: block;
-    width: 70%;
-    margin-left: 50px;
-    padding: 10px;
-    background-color: #FF5A5F;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
-  }
-  
-  .add-task-button:hover {
-    background-color: #FF5A5F;
-  }
-  
-  .task-title {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .history-button {
-    background-color: transparent;
-    border: none;
-    color: #FF5A5F;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .task-history {
-    margin-top: 10px;
-  }
-  
-  .history-title {
-    font-weight: bold;
-  }
-  
-  .history-list {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .task-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .action-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-  
-  /* New styles */
-  
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.section-grid {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: 1fr;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.task-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.history-button {
+  background: none;
+  border: none;
+  color: #FF5A5F;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.history-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.add-task-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #FF5A5F;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"], .cancel-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color:#FF5A5F;
+  color: white;
+  border: none;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: white;
+  border: none;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
   .section-grid {
-    display: flex;
-    width: 80%; /* Increase the width of each container */
-    margin: 0 1%; /* Adjust the margin to keep spacing between containers */
-    background-color: white; /* Optional: Add a light background to distinguish sections */
-    padding: 10px; /* Add some padding for better readability */
-    border-radius: 8px; /* Optional: Add rounded corners for a nicer look */
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .section-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 400px; /* Increased the width of the modal */
-  }
-  
-  .modal-content h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .modal-content form input,
-  .modal-content form select,
-  .modal-content form button {
+}
+
+@media (max-width: 767px) {
+  .board-container {
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
   }
-  
-  .modal-content form button {
-    background-color: #FF5A5F;
-    color: white;
-    cursor: pointer;
+
+  .task-title {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .modal-content form .cancel-button {
-    background-color: #ccc;
-    color: black;
-    margin-top: 10px;
+
+  .task-actions {
+    margin-top: 8px;
   }
-  .action-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-  
+}
